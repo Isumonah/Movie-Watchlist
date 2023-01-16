@@ -1,0 +1,188 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-size: 0.8em;
+}
+
+#container{
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+#find-film{
+    background-image: url(/images/background.png);
+    background-color: black;
+    color: white;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+#find-film a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#find-film a:hover,
+#find-film a:focus{
+    color: green;
+}
+
+#search{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 3vh;
+}
+
+#search input,
+#search button{
+    border-radius: 3px;
+    border: 1px solid #D1D5DB;
+    padding: 0.5rem 1.5rem;
+}
+
+
+#initial-display{
+    display: flex;
+    flex-direction: column;
+    color: #DFDDDD;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+#display{
+    margin-top: 25px;
+}
+
+#display img{
+    width: 10%;
+}
+
+#display p{
+    margin-top: 10px;
+}
+
+
+/* when searched movie is displayed */
+
+#movie{
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    max-width: 700px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+
+#movie:last-child{
+    border: none;
+    padding-bottom: 40px;
+}
+
+.movie img{
+    max-height: 150px;
+    max-width: 100px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#time-genre-watchlist,
+#movie-watchlist{
+    display: flex;
+}
+
+#movie-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    
+}
+
+#movie-rating{
+    margin-left: 20px;
+}
+
+#time-genre-watchlist{
+    max-width: 80%;
+}
+
+#runtime,
+#genre{
+    margin-right: 20px;
+}
+
+#movie-watchlist{
+    justify-content: space-around;
+    align-items: center;
+}
+
+#add-button{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: grey;
+    padding: 5px;
+    margin-right: 4px;
+    position: relative;
+    top: 5px;
+}
+   
+#add-button:hover{
+    background-color: purple;
+}
+
+#vertical,
+#horizontal{
+    width: 100%;
+    height: 0.5px;
+    background-color: white;
+}
+
+#vertical{
+    transform: rotate(90deg);  
+}
+
+#vertical.open{
+    transform: rotate(180deg);
+}
+
+#wrapper.open{
+    transform: rotate(180deg);
+    transition: 1s ease;
+}
+
+
+
+/* media queries*/
+
+@media (max-width: 450px){
+    html{
+        font-size: 0.7em;
+    }
+
+    .movie img{
+        height: 120px;
+
+    }
+    
+}
+
+@media (min-width: 800px){
+    html{
+        font-size: 1.2em;
+    }
+}
