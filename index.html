@@ -1,38 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Watchlist Creator</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div id="container">
-        <div id="find-film">
-            <h1 id="find">Find your film</h1>
-            <a href="watchlist.html">My Watchlist</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="home">
+    <div class="container">
+      <div class="find-film">
+        <h1 class="find">Find your film</h1>
+        <a class="favouriteLink" href="/watchlist.html">My Watchlist</a>
+      </div>
+      <div class="search">
+        <form id="search-form" class="search-form">
+          <input
+            id="search-input"
+            class="search-input"
+            type="text"
+            placeholder="Search for a movie"
+          />
+          <button class="search-button">Search</button>
+        </form>
+      </div>
+      <div id="display" class="display">
+        <div id="initial-display" class="initial-display">
+          <img src="/images/Icon.png" alt="icon for movies" />
+          <p>Start exploring</p>
         </div>
-        <div id="search">
-            <form id="search-form">
-                <input id="search-input" type="text" placeholder="Search for a movie">
-                <button  id="search-button">Search      
-                </button>
-            </form>
-        </div>
-        <div id="display">
-            <div id="initial-display">
-                <img src="/images/Icon.png" alt="icon for movies">
-                <p>Start exploring</p>   
-            </div>
-        </div>
-        <!-- <button id="add-button">
-            <div id="wrapper">
-                <div id="horizontal"><div>
-                <div id="vertical"></div> 
-            </div> -->
+      </div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

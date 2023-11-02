@@ -1,188 +1,247 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-html{
-    font-size: 0.8em;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
 }
 
-#container{
-    height: 100vh;
-    font-family: 'Inter', sans-serif;
-    
+.container {
+  width: 90%;
+  min-height: 100vh;
+  margin: 40px auto;
+  background-color: #ffffff;
 }
 
-#find-film{
-    background-image: url(/images/background.png);
-    background-color: black;
-    color: white;
-    height: 15vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
+.find-film {
+  background-image: url(/images/background.png);
+  background-color: black;
+  color: white;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
 }
 
-#find-film a{
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
+.find-film a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 19px;
 }
 
-#find-film a:hover,
-#find-film a:focus{
-    color: green;
+.find-film a:hover,
+.find-film a:focus {
+  color: blue;
 }
 
-#search{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    bottom: 3vh;
+.search-form {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 2.5vh;
+  width: 85%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-#search input,
-#search button{
-    border-radius: 3px;
-    border: 1px solid #D1D5DB;
-    padding: 0.5rem 1.5rem;
+.search-input,
+.search-button {
+  border-radius: 3px;
+  border: 1px solid #d1d5db;
+  padding: 0.7rem 1.5rem;
+  font-size: 16px;
 }
 
-
-#initial-display{
-    display: flex;
-    flex-direction: column;
-    color: #DFDDDD;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
+.search-input {
+  width: calc(70%);
+}
+.search-button {
+  width: calc(30%);
 }
 
-#display{
-    margin-top: 25px;
+.initial-display {
+  display: flex;
+  flex-direction: column;
+  color: #dfdddd;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
 }
 
-#display img{
-    width: 10%;
+.display {
+  margin-top: 30px;
 }
 
-#display p{
-    margin-top: 10px;
+.display img {
+  width: 10%;
 }
-
 
 /* when searched movie is displayed */
 
-#movie{
-    display: flex;
-    width: 95%;
-    margin: 0 auto;
-    max-width: 700px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid grey;
+.movie {
+  display: flex;
+  width: 85%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid #e5e7eb;
 }
 
-#movie:last-child{
-    border: none;
-    padding-bottom: 40px;
+.movie:last-child {
+  border: none;
+  padding-bottom: 40px;
 }
 
-.movie img{
-    max-height: 150px;
-    max-width: 100px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 5px;
+.movie-img {
+  height: 150px;
+  width: 5rem;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
-#time-genre-watchlist,
-#movie-watchlist{
-    display: flex;
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  margin-left: 21px;
+  font-size: 18px;
 }
 
-#movie-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 5px;
-    
+.title-rating {
+  display: flex;
+  align-items: center;
 }
 
-#movie-rating{
-    margin-left: 20px;
+.movie-title {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 20px;
+  margin-right: 10px;
+  white-space: nowrap;
 }
 
-#time-genre-watchlist{
-    max-width: 80%;
+.movie-rating {
+  font-size: 14px;
+  line-height: 20px;
+  color: #111827;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
 }
 
-#runtime,
-#genre{
-    margin-right: 20px;
+.fa {
+  color: #fec654;
+  width: 15px;
+  margin-right: 4px;
 }
 
-#movie-watchlist{
-    justify-content: space-around;
-    align-items: center;
+.time-genre-watchlist,
+.movie-watchlist,
+.remove-favourite {
+  display: flex;
+  white-space: nowrap;
+}
+.time-genre-watchlist {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 10px 0;
+  align-items: center;
 }
 
-#add-button{
-    height: 15px;
-    width: 15px;
-    border-radius: 50%;
-    border: none;
-    background-color: grey;
-    padding: 5px;
-    margin-right: 4px;
-    position: relative;
-    top: 5px;
-}
-   
-#add-button:hover{
-    background-color: purple;
+.movie-watchlist {
+  justify-content: space-between;
 }
 
-#vertical,
-#horizontal{
-    width: 100%;
-    height: 0.5px;
-    background-color: white;
+.runtime {
+  margin-right: 15px;
+  margin-top: 0;
 }
 
-#vertical{
-    transform: rotate(90deg);  
+.add-button {
+  margin-right: 8px;
 }
 
-#vertical.open{
-    transform: rotate(180deg);
+.hidden-icon {
+  display: none;
 }
 
-#wrapper.open{
-    transform: rotate(180deg);
-    transition: 1s ease;
+.show-icon {
+  display: block;
 }
-
-
 
 /* media queries*/
 
-@media (max-width: 450px){
-    html{
-        font-size: 0.7em;
-    }
+@media (max-width: 450px) {
+  .find-film {
+    flex-direction: column;
+    justify-content: space-around;
+  }
 
-    .movie img{
-        height: 120px;
+  .movie {
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
 
-    }
-    
+  .movie-img {
+    height: 200px;
+  }
+
+  .movie-title {
+    font-size: 20px;
+    margin-right: 15px;
+  }
+
+  .movie-info {
+    margin-left: 20px;
+  }
+  .time-genre-watchlist {
+    font-size: 15px;
+    width: 95%;
+  }
+
+  .movie-plot {
+    font-size: 16px;
+  }
 }
 
-@media (min-width: 800px){
-    html{
-        font-size: 1.2em;
-    }
+@media (max-width: 350px) {
+  .search-input,
+  .search-button {
+    font-size: 10px;
+  }
+
+  .movie-info {
+    margin-left: 15px;
+  }
+
+  .time-genre-watchlist {
+    font-size: 13px;
+  }
+  .movie-plot {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .time-genre-watchlist,
+  .movie-title {
+    white-space: break-spaces;
+  }
+
+  .add-button {
+    margin-right: 4px;
+  }
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 1.2em;
+  }
 }
