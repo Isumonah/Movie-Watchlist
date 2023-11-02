@@ -1,5 +1,5 @@
 const form = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
+let searchInput = document.getElementById('search-input');
 let display = document.getElementById('display');
 const initialDisplay = document.getElementById('initial-display');
 const homePage = document.getElementById('home');
@@ -82,21 +82,9 @@ if (storedMovies) {
     });
   });
 }
-// oldPlusBtn.addEventListener('click', (e) => {
-//   const datasetID = e.currentTarget.dataset.id;
-
-//   addedMovies.map((item) => {
-//     if ((item.imdbID === datasetID) & !movieArray.includes(item)) {
-//       movieArray.push(item);
-//       localStorage.setItem('movie', JSON.stringify(movieArray));
-//       addToLocalStorage();
-//     }
-//   });
-// });
-
-// oldMinusBtn.addEventListener('click', removeMovie);
 
 form.addEventListener('submit', (e) => {
+  console.log('formSubmitted');
   e.preventDefault();
   fetch(`https://www.omdbapi.com/?apikey=77d5c812&s=${searchInput.value}`)
     .then((res) => {
@@ -109,19 +97,21 @@ form.addEventListener('submit', (e) => {
       }
     })
     .then((data) => {
+      display.innerHTML = '';
       if (data.Search) {
         for (movie of data.Search) {
           fetch(`https://www.omdbapi.com/?apikey=77d5c812&i=${movie.imdbID}`)
             .then((res) => res.json())
             .then((data) => {
+              console.log(data);
               showMoviesOnSearchPage(data, display);
               addBtn(data);
             });
         }
       } else {
-        initialDisplay.innerHTML = 'No results found';
-        initialDisplay.style.fontWeight = 'bold';
-        initialDisplay.style.color = 'black';
+        display.innerHTML = `<p class="initial-display" style="font-weight: bold; color:black"> No Item Found </p>`;
+        // initialDisplay.style.fontWeight = 'bold';
+        // initialDisplay.style.color = 'black';
       }
     })
     .catch((error) => {
