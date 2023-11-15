@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -16,9 +17,6 @@ body {
 }
 
 .find-film {
-  background-image: url(/images/background.png);
-  background-color: black;
-  color: white;
   height: 15vh;
   display: flex;
   justify-content: space-between;
@@ -26,17 +24,27 @@ body {
   padding: 50px;
 }
 
-.find-film a {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 19px;
-}
-
-.find-film a:hover,
+/* .find-film a:hover,
 .find-film a:focus {
-  color: blue;
-}
+  color: rgb(117, 117, 220);
+  transform: scale(1.1);
+  font-weight: bold;
+} */
+
+/* @keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+    color: whitesmoke;
+  }
+  50% {
+   transform: scale(1.1); 
+    color: rgb(117, 117, 220);
+  }
+  100% {
+    transform: scale(1);
+    color: whitesmoke;
+  }
+} */
 
 .search-form {
   display: flex;
@@ -76,19 +84,19 @@ body {
   margin-top: 30px;
 }
 
-.display img {
+.initial-display img {
   width: 10%;
 }
 
 /* when searched movie is displayed */
 
 .movie {
-  display: flex;
-  width: 85%;
+  width: 80%;
   max-width: 900px;
   margin: 30px auto;
   padding-bottom: 20px;
   border-bottom: 1.5px solid #e5e7eb;
+  list-style: none;
 }
 
 .movie:last-child {
@@ -96,75 +104,9 @@ body {
   padding-bottom: 40px;
 }
 
-.movie-img {
-  height: 150px;
-  width: 5rem;
-  object-fit: cover;
-  border-radius: 5px;
-}
-
-.movie-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 5px;
-  margin-left: 21px;
-  font-size: 18px;
-}
-
-.title-rating {
-  display: flex;
-  align-items: center;
-}
-
-.movie-title {
-  font-weight: 500;
-  font-size: 25px;
-  line-height: 20px;
-  margin-right: 10px;
-  white-space: nowrap;
-}
-
-.movie-rating {
-  font-size: 14px;
-  line-height: 20px;
-  color: #111827;
-  font-weight: bolder;
-  display: flex;
-  align-items: center;
-}
-
-.fa {
-  color: #fec654;
-  width: 15px;
-  margin-right: 4px;
-}
-
-.time-genre-watchlist,
-.movie-watchlist,
 .remove-favourite {
   display: flex;
   white-space: nowrap;
-}
-.time-genre-watchlist {
-  display: flex;
-  justify-content: space-between;
-  width: 95%;
-  margin: 10px 0;
-  align-items: center;
-}
-
-.movie-watchlist {
-  justify-content: space-between;
-}
-
-.runtime {
-  margin-right: 15px;
-  margin-top: 0;
-}
-
-.add-button {
-  margin-right: 8px;
 }
 
 .hidden-icon {
@@ -173,75 +115,4 @@ body {
 
 .show-icon {
   display: block;
-}
-
-/* media queries*/
-
-@media (max-width: 450px) {
-  .find-film {
-    flex-direction: column;
-    justify-content: space-around;
-  }
-
-  .movie {
-    width: 95%;
-    margin: 0 auto;
-    padding-top: 10px;
-  }
-
-  .movie-img {
-    height: 200px;
-  }
-
-  .movie-title {
-    font-size: 20px;
-    margin-right: 15px;
-  }
-
-  .movie-info {
-    margin-left: 20px;
-  }
-  .time-genre-watchlist {
-    font-size: 15px;
-    width: 95%;
-  }
-
-  .movie-plot {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 350px) {
-  .search-input,
-  .search-button {
-    font-size: 10px;
-  }
-
-  .movie-info {
-    margin-left: 15px;
-  }
-
-  .time-genre-watchlist {
-    font-size: 13px;
-  }
-  .movie-plot {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 600px) {
-  .time-genre-watchlist,
-  .movie-title {
-    white-space: break-spaces;
-  }
-
-  .add-button {
-    margin-right: 4px;
-  }
-}
-
-@media (min-width: 800px) {
-  html {
-    font-size: 1.2em;
-  }
 }

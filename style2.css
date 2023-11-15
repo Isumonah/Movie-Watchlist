@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+    color: whitesmoke;
+  }
+  50% {
+    /* transform: scale(1.1); */
+    color: rgb(117, 117, 220);
+  }
+  100% {
+    transform: scale(1);
+    color: whitesmoke;
+  }
+}
+
+.find-film a {
+  animation: scaleAnimation 5s infinite;
+  transition: transform 0.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 0.6em;
+  }
+}
+
+/* when searched movie is displayed */
+
+.movie {
+  width: 85%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding-bottom: 20px;
+  border-bottom: 1.5px solid #e5e7eb;
+}
+
+.movie:last-child {
+  border: none;
+  padding-bottom: 40px;
+}
+
+.remove-favourite {
+  display: flex;
+  white-space: nowrap;
+}
+
+.hidden-icon {
+  display: none;
+}
+
+.show-icon {
+  display: block;
+}
+*/
+
+/* media queries*/
+
+
+
+
+
+
+@media (max-width: 600px) {
+  /* .time-genre-watchlist,
+  .movie-title {
+    white-space: break-spaces;
+  } */
+}
+
+/* .movie:last-child {
+  border: none;
+  padding-bottom: 40px;
+} */
+
+/* media queries*/

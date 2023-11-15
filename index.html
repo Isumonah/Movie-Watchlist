@@ -25,30 +25,51 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body id="home">
-    <div class="container">
-      <div class="find-film">
+  <body id="home" class="font-[inter] bg-[#121212]">
+    <div class="container w-[90%] min-h-[100vh] mx-auto bg-[#ffffff]">
+      <div
+        class="bg-[url('/images/background.png')] bg-black text-white flex justify-between py-[50px] sm:py-[70px] px-[20px] text-[22px] sm:text-[26px] lg:text-[32px] xl:text-[35px]"
+      >
         <h1 class="find">Find your film</h1>
-        <a class="favouriteLink" href="/watchlist.html">My Watchlist</a>
+        <a
+          class="favouriteLink cursor-pointer hover:text-[rgb(117, 117, 220)] hover:scale(1.1) hover:font-bold text-white rounded text-[14px] sm:text-[18px] lg:text-[20px] xl:text-[22px] border-2 py-1 px-2"
+          href="/watchlist.html"
+        >
+          My Watchlist
+        </a>
       </div>
       <div class="search">
-        <form id="search-form" class="search-form">
+        <form
+          id="search-form"
+          class="search-form flex justify-center w-[85%] max-w-[900px] mx-auto relative bottom-[2.5vh]"
+        >
           <input
             id="search-input"
-            class="search-input"
+            class="search-input text-[13px] sm:text-[16px] lg:text-[17px] xl:text-[19px] w-[calc(70%)] rounded border border-[#d1d5db] py-[0.7rem] px-[1.5rem]"
             type="text"
             placeholder="Search for a movie"
           />
-          <button class="search-button">Search</button>
+          <button
+            class="search-button text-[13px] sm:text-[16px] lg:text-[17px] xl:text-[19px] w-[calc(30%)]rounded bg-white border border-[#d1d5db] py-[0.7rem] px-[1.5rem] rounded"
+          >
+            Search
+          </button>
         </form>
       </div>
-      <div id="display" class="display">
-        <div id="initial-display" class="initial-display">
-          <img src="/images/Icon.png" alt="icon for movies" />
-          <p>Start exploring</p>
-        </div>
+      <div
+        id="display"
+        class="display mt-[30px] text-[15px] sm:text-[18px] lg:text-[21px] xl:text-[24px]">
+          <div
+            id="initial-display"
+            class="initial-display flex flex-col text-[#dfdddd] items-center justify-center h-[50vh]"
+          >
+            <img class="w-[10%]" src="/images/Icon.png" alt="icon for movies" />
+            <p>Start exploring</p>
+          </div>
+      </div>
       </div>
     </div>
     <script src="script.js"></script>

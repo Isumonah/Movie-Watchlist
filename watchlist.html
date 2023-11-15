@@ -16,12 +16,20 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body id="watchlist">
-    <div class="container">
-      <div class="find-film">
+  <body id="watchlist" class="font-[inter] bg-[#121212]">
+    <div class="container w-[90%] min-h-[100vh] mx-auto bg-[#ffffff]">
+      <div
+        class="bg-[url('/images/background.png')] bg-black text-white flex justify-between py-[50px] sm:py-[70px] px-[20px] text-[22px] sm:text-[26px] lg:text-[32px] xl:text-[35px]"
+      >
         <h1 class="find">My Watchlist</h1>
-        <a href="/">Search for movies</a>
+        <a
+          class="favouriteLink cursor-pointer hover:text-[rgb(117, 117, 220)] hover:scale(1.1) hover:font-bold text-white rounded text-[14px] sm:text-[18px] lg:text-[20px] xl:text-[22px] border-2 py-1 px-2"
+          href="/"
+        >
+          Search for Movies
+        </a>
       </div>
       <div id="display-favourite">
         <!-- favourite movies go here -->
