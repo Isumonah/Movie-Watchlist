@@ -21,16 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
 const storedMovies = JSON.parse(sessionStorage.getItem('movieSearchPage'));
 if (storedMovies) {
   document.body.innerHTML = storedMovies;
-  console.log(storedMovies);
-  console.log(movieArray);
 
   sessionStorage.removeItem('movieSearchPage');
 
-  const oldPlusBtn = document.querySelectorAll('.plus-icon');
-  const oldMinusBtn = document.querySelectorAll('.minus-icon');
+  const newPlusBtn = document.querySelectorAll('.plus-icon');
+  const newMinusBtn = document.querySelectorAll('.minus-icon');
   movieArray = JSON.parse(localStorage.getItem('movie'));
 
-  oldPlusBtn.forEach((item) => {
+  newPlusBtn.forEach((item) => {
     item.addEventListener('click', (e) => {
       const datasetID = e.currentTarget.dataset.id;
 
@@ -41,7 +39,8 @@ if (storedMovies) {
 
       const minusBtn = e.target.nextElementSibling;
 
-      console.log(minusBtn);
+      let watchlistRemove = minusBtn.nextElementSibling;
+      watchlistRemove.innerHTML = 'Remove';
 
       minusBtn.classList.remove('hidden-icon');
       minusBtn.classList.add('show-icon');
@@ -60,12 +59,14 @@ if (storedMovies) {
     });
   });
 
-  oldMinusBtn.forEach((item) => {
+  newMinusBtn.forEach((item) => {
     item.addEventListener('click', (e) => {
-      console.log(movieArray);
       e.stopPropagation();
       const datasetID = e.target.dataset.id;
       const plusBtn = e.target.previousElementSibling;
+      let watchlistRemove = e.target.nextElementSibling;
+      watchlistRemove.innerHTML = 'Watchlist';
+
       plusBtn.classList.remove('hidden-icon');
       plusBtn.classList.add('show-icon');
       e.target.classList.remove('show-icon');
@@ -77,14 +78,11 @@ if (storedMovies) {
         return item.imdbID !== datasetID;
       });
       localStorage.setItem('movie', JSON.stringify(movieArray));
-
-      console.log(movieArray);
     });
   });
 }
 
 form.addEventListener('submit', (e) => {
-  console.log('formSubmitted');
   e.preventDefault();
   fetch(`https://www.omdbapi.com/?apikey=77d5c812&s=${searchInput.value}`)
     .then((res) => {
@@ -103,7 +101,6 @@ form.addEventListener('submit', (e) => {
           fetch(`https://www.omdbapi.com/?apikey=77d5c812&i=${movie.imdbID}`)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               showMoviesOnSearchPage(data, display);
               addBtn(data);
             });
@@ -122,18 +119,17 @@ form.addEventListener('submit', (e) => {
 
 function addBtn(data) {
   addedMovies.push(data);
-  console.log(addedMovies);
   sessionStorage.setItem('addedMovies', JSON.stringify(addedMovies));
 
   const button = document.querySelectorAll('.add-button');
 
   button.forEach((item) => {
     const plusIcon = item.querySelector('.plus-icon');
-    console.log(plusIcon);
     const minusIcon = item.querySelector('.minus-icon');
+    let watchlistRemove = item.querySelector('.watchlist-remove');
     plusIcon.addEventListener('click', (e) => {
-      console.log(plusIcon);
-      console.log(e);
+      e.stopPropagation();
+      watchlistRemove.innerHTML = 'Remove';
       plusIcon.classList.add('hidden-icon');
       plusIcon.classList.remove('show-icon');
       minusIcon.classList.remove('hidden-icon');
@@ -159,6 +155,8 @@ function removeMovie(e) {
   e.stopPropagation();
   const datasetID = e.target.dataset.id;
   const plusBtn = e.target.previousElementSibling;
+  let watchlistRemove = e.target.nextElementSibling;
+  watchlistRemove.innerHTML = 'Watchlist';
   plusBtn.classList.remove('hidden-icon');
   plusBtn.classList.add('show-icon');
   e.target.classList.remove('show-icon');
@@ -213,18 +211,13 @@ function showMoviesOnPage(eachMovie, item) {
             <p class="genre mr-2"> ${eachMovie.Genre}</p>
 
             <div class="hidden sm:block">
-              <button class="movie-watchlist flex justify-between add-button">
+              <button class="movie-watchlist flex justify-between add-button items-center">
 
-                <p class="plus-icon" data-id=${eachMovie.imdbID}>
-                <i class="fa-solid fa-plus p-[2px] rounded-full bg-[#111827] text-white"></i>
-                Watchlist
-                </p>
+                <i class="plus-icon fa-solid fa-plus p-[4px] rounded-full bg-[#111827] text-white hover:scale(1.5)"  data-id=${eachMovie.imdbID}></i>
+                
+                <i class="minus-icon hidden-icon fa-solid fa-minus p-[4px] rounded-full bg-[#111827] text-white hover:scale(1.1)" data-id=${eachMovie.imdbID}></i>
 
-                <p class="minus-icon hidden-icon" data-id=${eachMovie.imdbID}>
-                <i class="fa-solid fa-minus p-[2px] rounded-full bg-[#111827] text-white"></i>
-                Remove
-                </p>
-
+                <p class="watchlist-remove ml-2">Watchlist</p>
               </button>
             </div>
 
@@ -240,9 +233,9 @@ function showMoviesOnPage(eachMovie, item) {
             <p> A recently divorced man meets an emotionally devastated widow and they begin a love affair.
             </p>      
           </div>
-          <div class="add-button mt-4 w-8/12 mx-auto rounded sm:hidden text-[13px] " data=${eachMovie.imdbID}>
-            <button class="plus-icon bg-black text-white p-2 w-full" data-id=${eachMovie.imdbID}>Add to Watchlist</button>
-            <button class="minus-icon hidden-icon text-black border-2 border-black p-2" data-id=${eachMovie.imdbID}>Remove from Watchlist</button>
+          <div class="add-button mt-4 w-8/12 mx-auto rounded sm:hidden text-[13px]" data=${eachMovie.imdbID}>
+            <button class="plus-icon bg-black text-white p-2 w-full hover:scale(1.1)" data-id=${eachMovie.imdbID}>Add to Watchlist</button>
+            <button class="minus-icon hidden-icon text-black border-2 border-black p-2 hover:scale(1.1)" data-id=${eachMovie.imdbID}>Remove from Watchlist</button>
           </div>
         </div>
       </div>
