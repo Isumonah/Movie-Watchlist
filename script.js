@@ -40,7 +40,7 @@ if (storedMovies) {
       const minusBtn = e.target.nextElementSibling;
 
       let watchlistRemove = minusBtn.nextElementSibling;
-      watchlistRemove.innerHTML = 'Remove';
+      watchlistRemove ? (watchlistRemove.innerHTML = 'Remove') : '';
 
       minusBtn.classList.remove('hidden-icon');
       minusBtn.classList.add('show-icon');
@@ -65,7 +65,7 @@ if (storedMovies) {
       const datasetID = e.target.dataset.id;
       const plusBtn = e.target.previousElementSibling;
       let watchlistRemove = e.target.nextElementSibling;
-      watchlistRemove.innerHTML = 'Watchlist';
+      watchlistRemove ? (watchlistRemove.innerHTML = 'Watchlist') : '';
 
       plusBtn.classList.remove('hidden-icon');
       plusBtn.classList.add('show-icon');
@@ -129,7 +129,7 @@ function addBtn(data) {
     let watchlistRemove = item.querySelector('.watchlist-remove');
     plusIcon.addEventListener('click', (e) => {
       e.stopPropagation();
-      watchlistRemove.innerHTML = 'Remove';
+      watchlistRemove ? (watchlistRemove.innerHTML = 'Remove') : '';
       plusIcon.classList.add('hidden-icon');
       plusIcon.classList.remove('show-icon');
       minusIcon.classList.remove('hidden-icon');
@@ -156,7 +156,7 @@ function removeMovie(e) {
   const datasetID = e.target.dataset.id;
   const plusBtn = e.target.previousElementSibling;
   let watchlistRemove = e.target.nextElementSibling;
-  watchlistRemove.innerHTML = 'Watchlist';
+  watchlistRemove ? (watchlistRemove.innerHTML = 'Watchlist') : '';
   plusBtn.classList.remove('hidden-icon');
   plusBtn.classList.add('show-icon');
   e.target.classList.remove('show-icon');
